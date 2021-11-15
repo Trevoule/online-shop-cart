@@ -1,10 +1,18 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <vMainWrapper /> 
   </div>
   <router-view/>
 </template>
+
+
+<script>
+import vMainWrapper from '../src/components/v-main-wrapper.vue'
+
+export default {
+  components:{vMainWrapper}
+}
+</script>
 
 <style>
 #app {
