@@ -2,7 +2,6 @@
   <div id="nav">
     <vMainWrapper /> 
   </div>
-  <router-view/>
 </template>
 
 

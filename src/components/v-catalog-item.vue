@@ -1,14 +1,14 @@
 <template>
   <div class="v-catalog-item">
-      <img class="v-catalog-item__image" :src=" require ('../assets/images/'+ product_data.image)" alt="img">
-      <p class="v-catalog-item-name">{{product_data.name}}</p>
-      <p class="v-catalog-item-price">Price: {{product_data.price}} RUB</p>
-      <button 
-        class="v-catalog-item-add-to-cart-btn btn" 
-        @click="sendData"
-        >
-          Add to Cart
-      </button>
+    <img class="v-catalog-item__image" :src=" require ('../assets/images/'+ product_data.image)" alt="img">
+    <p class="v-catalog-item-name">{{product_data.name}}</p>
+    <p class="v-catalog-item-price">Price: {{product_data.price}} RUB</p>
+    <button 
+    class="v-catalog-item-add-to-cart-btn btn" 
+    @click="addToCart"
+    >
+    Add to Cart
+    </button>
   </div>
 </template>
 
@@ -23,23 +23,33 @@ export default {
         }
     },
     methods:{
-        sendData(){
-            this.$emit('getArticle',[this.product_data.article, this.product_data.price] )
+        addToCart(){
+            this.$emit('addToCart', this.product_data)
         }
     }
 
 }
 </script>
 
-<style lang="scss">
-.v-catalog-item{
-    flex-basis: 25%;
-    box-shadow: 0 0 8px 0 #e0e0e0;
-    padding: $padding*2;
-    margin-bottom: $margin*2;
+ <style>
+ .v-catalog-item {
+     flex-basis: 25%;
+     box-shadow: 0 0 8px 0 #e0e0e0;
+     padding: 8px;
+     margin-bottom: 16px;
+}
 
-&__image{
-    width: 400px;
-}
-}
-</style>
+.v-catalog-item__image{
+     width: 200px;
+ }
+
+ .btn{
+     padding: 8px 16px;
+     background: #26ae68;
+     color: #ffffff;
+     border: 0;
+     border-radius: 4px;
+     cursor: pointer;
+     font-weight: 900;
+ }
+ </style>
