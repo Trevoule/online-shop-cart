@@ -1,7 +1,9 @@
 <template>
   <div class="v-catalog">
     <router-link :to="{name:'Cart', params: {cart_data: CART}}">
-      <div class="v-catalog__link_to_cart">Cart {{CART.length}}</div>    
+      <div class="v-catalog__link_to_cart">
+        Cart {{CART.length}}
+      </div>    
     </router-link>
 
     <h1>Catalog</h1>
@@ -23,11 +25,6 @@ import {mapActions, mapGetters } from 'vuex'
 export default {
     name: "v-catalog",
     components: {vCatalogItem},
-    data(){
-        return{
-            
-        }
-    },
     methods:{
       ...mapActions([
         'GET_PRODUCTS_FROM_API',
@@ -41,7 +38,7 @@ export default {
       ...mapGetters([
         'PRODUCTS',
         'CART'
-    ])
+      ])
     },
     mounted(){
       this.GET_PRODUCTS_FROM_API()
