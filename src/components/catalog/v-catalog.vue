@@ -2,7 +2,8 @@
   <div class="v-catalog">
     <router-link :to="{name:'Cart', params: {cart_data: CART}}">
       <div class="v-catalog__link_to_cart">
-        Cart {{CART.length}}
+        <span v-if="!CART.length">Empty</span>
+        <span v-else>Cart: {{CART.length}}</span>
       </div>    
     </router-link>
 
@@ -46,19 +47,23 @@ export default {
   }
 </script>
 
-<style>
-.v-catalog__list{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-}
+<style lang="scss">
+.v-catalog{
+  &__list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-.v-catalog__link_to_cart{
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  padding: 20px;
-  border: solid 1px #26ae68;
+  &__link_to_cart{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    padding: 10px 10px;
+    border: solid 2px $main-green;
+    border-radius: $radius;
+    min-width: 70px;
+  }
 }
 </style>

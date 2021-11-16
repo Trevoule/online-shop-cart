@@ -19,7 +19,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .v-main-wrapper {
     max-width: 900px;
     margin: 0 auto;

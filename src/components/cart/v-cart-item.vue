@@ -50,20 +50,19 @@ mounted(){
 }
 </script>
 
-<style>
+<style lang="scss">
 .v-cart-item{
-display: flex;
-flex-wrap: nowrap;
-align-items: center;
-justify-content: space-between;
-box-shadow: 0 0 8px 0 #e0e0e0;
-padding: 16px;
-margin-bottom: 16px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0 8px 0 #e0e0e0;
+  padding: $padding*2;
+  margin-bottom: $padding*2;
 
-}
-.v-cart-item__image{
-max-width: 100px;
-
+  &__image {
+  max-width: 100px;
+  }
 }
 .quantity_btn{
   cursor: pointer;

@@ -15,9 +15,8 @@
   @decrement ="decrement(index)"
 />
 <div class="v-cart__total">
-  <p v-if="CART.length">Total : </p>
-  <p v-if="CART.length">{{cartTotalCost}}</p>
-  <p v-else>Корзина пуста</p>
+  <p v-if="CART.length">Total: {{cartTotalCost}}</p>
+  <p v-else>Cart is empty.</p>
 </div>
   
 </div>
@@ -63,14 +62,12 @@ computed:{
     'CART'
   ]),
   cartTotalCost(){
-    let result = 0
-    
-    for(let item of this.CART){
-      if((typeof item.quantity === 'number')){  
-        result += (item.price * item.quantity)   
-      }
-    }
-    return result
+    return this.CART.reduce((acc, elem) =>{
+      if(typeof elem.quantity === 'number'){
+        acc += elem.quantity * elem.price
+        }
+      return acc
+    },0)
   }
 },
 mounted(){
@@ -79,34 +76,36 @@ mounted(){
 }
 </script>
 
-<style>
+<style lang="scss">
 .v-cart{
 margin-bottom: 100px;
-}
 
-.v-cart__total{
-position: fixed;
-bottom: 0;
-right: 0;
-left: 0;
-padding: 16px;
-display: flex;
-justify-content: center;
-background: #26ae68;
-color: #ffffff;
-font-size: 20px;
-}
+  &__total{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: $padding*2;
+  display: flex;
+  justify-content: center;
+  background: $main-green;
+  color: #ffffff;
+  font-size: 20px;
+  }
 
-.v-cart__total_name{
-margin-right: 16px;
+  &__total_name{
+  margin-right: $margin*2;
 
-}
+  }
 
-.v-cart__back_btn{
-position: absolute;
-top: 10px;
-right: 20px;
-padding: 20px;
-border: solid 1px teal;
+  &__back_btn{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    padding: 20px;
+    border: solid 2px $main-green;
+    border-radius: $radius;
+    min-width: 70px;
+  }
 }
 </style>

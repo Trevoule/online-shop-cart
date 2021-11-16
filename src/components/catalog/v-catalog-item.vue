@@ -31,25 +31,26 @@ export default {
 }
 </script>
 
- <style>
+ <style lang="scss">
  .v-catalog-item {
      flex-basis: 25%;
      box-shadow: 0 0 8px 0 #e0e0e0;
-     padding: 8px;
-     margin-bottom: 16px;
+     padding: $padding;
+     margin-bottom: $padding*2;
+
+    &__image{
+        width: 200px;
+    }
 }
 
-.v-catalog-item__image{
-     width: 200px;
- }
+.btn{
+    padding: $padding $padding*2;
+    background: $main-green;
+    color: #ffffff;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 900;
+}
 
- .btn{
-     padding: 8px 16px;
-     background: #26ae68;
-     color: #ffffff;
-     border: 0;
-     border-radius: 4px;
-     cursor: pointer;
-     font-weight: 900;
- }
  </style>
